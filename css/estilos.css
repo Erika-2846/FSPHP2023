@@ -1,0 +1,54 @@
+.carousel-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.texto-container {
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: flex-end;
+height: 600px; 
+}
+
+.card-body {
+    color: white;
+}
+
+.btn {
+    color: white;
+}
+
+.conoce {
+    font: 300 1em 'Raleway', sans-serif;
+    color: black;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.oradores {
+	font: 600 1.5em 'Raleway', sans-serif;
+    color: black;
+    text-align: center;
+    text-transform: none;
+    letter-spacing: 0.07em;
+
+}
+
+.card-body-orador {
+    padding: 10px;
+}
+
+.charla {
+    text-align: center;
+}
+
+.dotted-underline {
+    text-decoration: underline dotted;
+}
