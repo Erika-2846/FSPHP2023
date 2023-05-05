@@ -14,6 +14,7 @@ flex-direction: column;
 justify-content: flex-end;
 align-items: flex-end;
 height: 600px; 
+margin: 0px 40px 20px 0px;
 }
 
 .card-body {
@@ -51,4 +52,12 @@ height: 600px;
 
 .dotted-underline {
     text-decoration: underline dotted;
+}
+
+.bg-image {
+    object-fit: cover;
+}
+
+h6 {
+    font-size: 14px;
 }

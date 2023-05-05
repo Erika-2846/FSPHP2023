@@ -29,19 +29,19 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">La conferencia</a>
+                            <a class="nav-link active" aria-current="page" href="#seccionConferencia"> La conferencia</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Los oradores</a>
+                            <a class="nav-link active" href="#seccionOradores"> Los oradores</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">El lugar y la fecha</a>
+                            <a class="nav-link active" href="#seccionLugarFecha"> El lugar y la fecha</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Conviértete en orador</a>
+                            <a class="nav-link active" href="#seccionSerOrador"> Conviértete en orador</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-success" href="#">Comprar tickets</a>
+                            <a class="nav-link link-success" href="#"> Comprar tickets</a>
                         </li>
                     </ul>
                 </div>
@@ -50,25 +50,25 @@
         <!-- Fin Barra de Navegación -->
 
         <!-- Inicio Carrusel -->
-        <div class="container">
+        <div class="flex-container">
             <div id="carouselExampleAutoplaying text-carousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="./img/ba1.jpg" class="d-block w-100 bg-image img-fluid" alt="...">
+                        <img src="./img/ba1.jpg" class="d-block w-100 h-100 bg-image img-fluid" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="./img/ba2.jpg" class="d-block w-100 bg-image img-fluid" alt="...">
+                        <img src="./img/ba2.jpg" class="d-block w-100 h-100 bg-image img-fluid" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="./img/ba3.jpg" class="d-block w-100 bg-image img-fluid" alt="...">
+                        <img src="./img/ba3.jpg" class="d-block w-100 h-100 bg-image img-fluid" alt="...">
                     </div>
-
+                    
+                    <a name="seccionConferencia"></a>
                     <div class="row">
                         <div class="col-6 offset-6">
                             <div class="carousel-inner">
                                 <div class="item active">
                                     <div class="carousel-content">
-
                                         <div class="texto-container">
                                             <div class="card text-end bg-transparent">
                                                 <div class="card-body">
@@ -113,6 +113,7 @@
     </header>
 
     <!-- Sección Oradores -->
+    <a name="seccionOradores"></a>
     <section class="container">
         <div class="container my-3" style="font-size: 1.3em; overflow-x: auto;">
             <h5 class="conoce">CONOCE A LOS</h5>
@@ -132,8 +133,7 @@
                                 Nisi, quibusdam
                                 impedit, dolores minus ducimus vel dignissimos nobis dolor, ut deleniti repellendus
                                 aspernatur accusantium labore nihil et beatae rerum explicabo quae exercitationem
-                                commodi
-                                quis facere. Beatae?</p>
+                                commodi?</p>
                         </div>
                     </div>
                 </div>
@@ -171,12 +171,13 @@
 
     <!-- Inicio Tarjeta Ciudad -->
     <main>
-        <div class="container">
+        <a name="seccionLugarFecha"></a>
+        <div class="flex-container">
             <div class="card mb-3 mt-3" style="max-width: 100%;">
                 <div class="row g-0">
                     <div class="col-md-6">
-                        <img src="./img/honolulu.jpg" class="img-fluid rounded-start rounded-end" alt="..."
-                            style="max-width: 100%; height: auto;">
+                        <img src="./img/honolulu.jpg" class="img-fluid rounded-start" alt="..."
+                            style="max-width: 100%; height: 100%;">
                     </div>
                     <div class="col-md-6">
                         <div class="card-body rounded-end h-100" style="background-color: rgb(33,37,41); color: white;">
@@ -195,13 +196,14 @@
         </div>
     </main>
 
+    <a name="seccionSerOrador"></a>
     <section class="container">
         <div class="container my-3" style="font-size: 1.3em; overflow-x: auto;">
             <h5 class="conoce">CONVIÉRTETE EN UN</h5>
             <h3 class="oradores" style="white-space: nowrap;">ORADOR</h3>
             <p class="charla">Anótate como orador para dar una <u class="dotted-underline">charla ignite.</u> Cuéntanos de qué quieres hablar!</p>
         </div>
-       
+
         <div class="container">
             <form class="row g-3 needs-validation col-md-6 mx-auto" novalidate>
                 <div class="col-md-6">
@@ -231,7 +233,7 @@
         </div>
     </section>
 
-    <footer class="bg-dark text-light text-lg-start">
+    <footer class="text-light text-lg-start" style="background-color: #183F57;">
         <div class="container p-4">
             <div class="row d-flex justify-content-between">
                 <div class="col-lg-1 col-md-4 col-6">
