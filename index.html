@@ -41,7 +41,7 @@
                             <a class="nav-link active" href="#seccionSerOrador"> Conviértete en orador</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-success" href="#"> Comprar tickets</a>
+                            <a class="nav-link link-none" href="tickets.html" style="color: rgb(106, 212, 106);"> Comprar tickets</a>
                         </li>
                     </ul>
                 </div>
@@ -54,13 +54,13 @@
             <div id="carouselExampleAutoplaying text-carousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="./img/ba1.jpg" class="d-inline-block w-100 h-100 bg-image img-fluid" alt="...">
+                        <img src="./img/ba1.jpeg" class="d-inline-block w-100 h-100 bg-image img-fluid" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="./img/ba2.jpg" class="d-inline-block w-100 h-100 bg-image img-fluid" alt="...">
+                        <img src="./img/ba2.jpeg" class="d-inline-block w-100 h-100 bg-image img-fluid" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="./img/ba3.jpg" class="d-inline-block w-100 h-100 bg-image img-fluid" alt="...">
+                        <img src="./img/ba3.jpeg" class="d-inline-block w-100 h-100 bg-image img-fluid" alt="...">
                     </div>
                     
                     <a name="seccionConferencia"></a>
@@ -86,7 +86,7 @@
                                                         tenemos para ti. Te esperamos!</p>
 
                                                     <a href="#seccionSerOrador" class="btn btn-outline-dark">Quiero ser orador</a>
-                                                    <a href="#" class="btn btn-success">Comprar tickets</a>
+                                                    <a href="tickets.html" class="btn btn-none" style="background-color: rgb(106, 212, 106);">Comprar tickets</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -208,7 +208,7 @@
             <form class="row g-3 needs-validation col-md-6 mx-auto" novalidate>
                 <div class="col-md-6">
                     <label for="validationCustom01" class="form-label"></label>
-                    <input type="text" class="form-control" id="validationCustom01" value="" required
+                    <input id="nombre" type="text" class="form-control" value="" required
                         placeholder="Nombre">
                     <div class="valid-feedback">
                         Looks good!
@@ -216,7 +216,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="validationCustom02" class="form-label"></label>
-                    <input type="text" class="form-control" id="validationCustom02" value="" required
+                    <input id="apellido" type="text" class="form-control" value="" required
                         placeholder="Apellido">
                     <div class="valid-feedback">
                         Looks good!
@@ -228,7 +228,7 @@
                     <label for="floatingTextarea2">Sobre qué quieres hablar?</label>
                 </div>
                 <p class="" style="color: gray;">Recuerda incluir un titulo para tu charla</p>
-                <button type="button" class="btn btn-success mb-4">Enviar</button>
+                <button id="btn-enviar" type="button" class="btn btn-none mb-4" style="background-color: rgb(106, 212, 106);">Enviar</button>
             </form>
         </div>
     </section>
@@ -265,6 +265,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
+
+        <script src="scripts.js"></script>
 </body>
 
 </html>
