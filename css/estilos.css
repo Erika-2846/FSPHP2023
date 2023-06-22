@@ -82,3 +82,8 @@ margin: 0px 40px 20px 0px;
 h6 {
     font-size: 14px;
 }
+
+.oculto {
+    display: none;
+    color: red;
+}
