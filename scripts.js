@@ -1,131 +1,156 @@
 // Variables globales
 let ticketsVendidos = {
-    estudiante: 0,
-    trainee: 0,
-    junior: 0,
-    general: 0
-  };
-  let precioFinal = 0;
-  const valorTicket = 200;
-  
-  // Función para calcular el descuento y actualizar los tickets vendidos
-  function calcularDescuento(valorTicket, categoria) {
-    let descuento;
-    switch (categoria) {
-      case 'Estudiante':
-        descuento = 0.8;
-        ticketsVendidos.estudiante++;
-        break;
-      case 'Trainee':
-        descuento = 0.5;
-        ticketsVendidos.trainee++;
-        break;
-      case 'Junior':
-        descuento = 0.15;
-        ticketsVendidos.junior++;
-        break;
-      default:
-        descuento = 0;
-        ticketsVendidos.general++;
-    }
-    precioFinal = valorTicket - valorTicket * descuento;
-    actualizarPantalla();
+  estudiante: 0,
+  trainee: 0,
+  junior: 0,
+  general: 0
+};
+let precioFinal = 0;
+const valorTicket = 200;
+let informacionCompra = ''; // Variable para almacenar la información de la compra
+
+// Función para calcular el descuento y actualizar los tickets vendidos
+function calcularDescuento(valorTicket, cantEntradas) {
+  const categoriaSelect = document.getElementById('categoria');
+  const categoria = categoriaSelect.value;
+  let descuento;
+
+  switch (categoria) {
+    case '1': // Estudiante
+      descuento = 80;
+      ticketsVendidos.estudiante += parseInt(cantEntradas);
+      break;
+    case '2': // Trainee
+      descuento = 50;
+      ticketsVendidos.trainee += parseInt(cantEntradas);
+      break;
+    case '3': // Junior
+      descuento = 15;
+      ticketsVendidos.junior += parseInt(cantEntradas);
+      break;
+    default:
+      descuento = 0; // General
+      ticketsVendidos.general += parseInt(cantEntradas);
   }
-  
-  // Función para actualizar la información en la pantalla
-  function actualizarPantalla() {
-    const contenido = `Tickets vendidos:
+
+  precioFinal = valorTicket * (100 - descuento) / 100 * parseInt(cantEntradas);
+  actualizarPantalla();
+}
+
+// Función para actualizar la información en la pantalla
+function actualizarPantalla() {
+  const contenido = `Tickets vendidos:
   - Estudiantes: ${ticketsVendidos.estudiante}
   - Trainees: ${ticketsVendidos.trainee}
   - Juniors: ${ticketsVendidos.junior}
   - General: ${ticketsVendidos.general}
   
   Precio final: $${precioFinal}`;
-  
-    document.getElementById('Info').textContent = contenido;
-    document.getElementById('total').textContent = `Total a Pagar: $${precioFinal}`;
-  }
-  
-  // Función para mostrar el resumen de la compra
-  function mostrarResumen() {
-    const totalVendido = ticketsVendidos.estudiante + ticketsVendidos.trainee + ticketsVendidos.junior + ticketsVendidos.general;
-    const totalRecaudado = totalVendido * valorTicket;
-  
-    const contenido = `Resumen:
+
+  informacionCompra = contenido; // Almacenar el contenido en la variable informacionCompra
+
+  document.getElementById('Info').textContent = contenido;
+  document.getElementById('total').textContent = `Total a Pagar: $${precioFinal}`;
+}
+
+// Función para mostrar el resumen de la compra
+function mostrarResumen(event) {
+  const totalVendido = ticketsVendidos.estudiante + ticketsVendidos.trainee + ticketsVendidos.junior + ticketsVendidos.general;
+  const totalRecaudado = totalVendido * valorTicket;
+
+  const contenido = `Resumen:
   - Total de tickets vendidos: ${totalVendido}
-  - Total recaudado: $${totalRecaudado}`;
-  
-    alert(contenido);
+  - Total recaudado: $${totalRecaudado}
+
+${informacionCompra}`; // Agregar el contenido de Info al resumen de la compra
+
+  console.log(contenido); // Imprimir el resumen en la consola en lugar de mostrar un alert
+  event.preventDefault();
+  compra();
+}
+
+// Función para borrar la información de la compra
+function borrarInformacion() {
+  ticketsVendidos = {
+    estudiante: 0,
+    trainee: 0,
+    junior: 0,
+    general: 0
+  };
+  precioFinal = 0;
+  actualizarPantalla();
+}
+
+// Función para realizar la compra
+function compra() {
+  const nombre = document.getElementById('nombre');
+  const apellido = document.getElementById('apellido');
+  const email = document.getElementById('email');
+  const cantEntradas = document.getElementById('cantEntradas').value;
+
+  if (!validarNombre() || !validarApellido() || !validarEmail()) {
+    return; // Detener la compra si hay errores de validación
   }
-  
-  // Función para borrar la información de la compra
-  function borrarInformacion() {
-    ticketsVendidos = {
-      estudiante: 0,
-      trainee: 0,
-      junior: 0,
-      general: 0
-    };
-    precioFinal = 0;
-    actualizarPantalla();
+
+  const categoriaSelect = document.getElementById('categoria');
+  const categoria = categoriaSelect.value;
+  calcularDescuento(valorTicket, cantEntradas);
+}
+
+// Funciones de validación
+
+function validarNombre() {
+  const nombre = document.getElementById('nombre').value.trim();
+  const errorNombre = document.getElementById('errorNombre');
+  if (nombre === '') {
+    errorNombre.textContent = 'Por favor, ingrese su nombre';
+    errorNombre.classList.remove('oculto');
+    return false;
+  } else if (nombre.length < 3) {
+    errorNombre.textContent = 'El nombre debe tener al menos 3 caracteres';
+    errorNombre.classList.remove('oculto');
+    return false;
+  } else {
+    errorNombre.classList.add('oculto');
+    return true;
   }
-  
-  // Función para realizar la compra
-  function compra() {
-    const categoriaSelect = document.getElementById('categoria');
-    const categoria = categoriaSelect.options[categoriaSelect.selectedIndex].text;
-    calcularDescuento(valorTicket, categoria);
+}
+
+function validarApellido() {
+  const apellido = document.getElementById('apellido').value.trim();
+  const errorApellido = document.getElementById('errorApellido');
+  if (apellido === '') {
+    errorApellido.textContent = 'Por favor, ingrese su apellido';
+    errorApellido.classList.remove('oculto');
+    return false;
+  } else if (apellido.length < 3) {
+    errorApellido.textContent = 'El apellido debe tener al menos 3 caracteres';
+    errorApellido.classList.remove('oculto');
+    return false;
+  } else {
+    errorApellido.classList.add('oculto');
+    return true;
   }
-  
-  // Funciones de validación
-  function validarNombre() {
-    const nombre = document.getElementById('nombre');
-    const errorNombre = document.getElementById('errorNombre');
-    if (nombre.value.length < 3) {
-      errorNombre.innerHTML = 'El nombre no es válido';
-    } else {
-      errorNombre.innerHTML = 'El nombre es válido';
-    }
+}
+
+function validarEmail() {
+  const email = document.getElementById('email').value.trim();
+  const errorEmail = document.getElementById('errorEmail');
+  const regexEmail = /\S+@\S+\.\S+/;
+
+  if (email === '') {
+    errorEmail.textContent = 'Por favor, ingrese su correo electrónico';
+    errorEmail.classList.remove('oculto');
+    return false;
+  } else if (!regexEmail.test(email)) {
+    errorEmail.textContent = 'Por favor, ingrese un correo electrónico válido';
+    errorEmail.classList.remove('oculto');
+    return false;
+  } else {
+    errorEmail.classList.add('oculto');
+    return true;
   }
-  
-  function validarApellido() {
-    const apellido = document.getElementById('apellido');
-    const errorApellido = document.getElementById('errorApellido');
-    if (apellido.value.length < 3) {
-      errorApellido.innerHTML = 'El apellido no es válido';
-    } else {
-      errorApellido.innerHTML = 'El apellido es válido';
-    }
-  }
-  
-  function validarEmail() {
-    const email = document.getElementById('email');
-    const errorEmail = document.getElementById('errorEmail');
-    const expReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    if (!expReg.test(email.value)) {
-      errorEmail.innerHTML = 'El email no es válido';
-    } else {
-      errorEmail.innerHTML = 'El email es válido';
-    }
-  }
-  
-  // Event listeners
-  document.addEventListener('DOMContentLoaded', function() {
-    const botonComprar = document.getElementById('btnComprar');
-    const botonBorrar = document.getElementById('btnBorrar');
-    const botonResumen = document.getElementById('btnResumen');
-    const email = document.getElementById('email');
-    const nombre = document.getElementById('nombre');
-    const apellido = document.getElementById('apellido');
-  
-    botonResumen.addEventListener('click', validarNombre);
-    botonResumen.addEventListener('click', validarApellido);
-    botonResumen.addEventListener('click', validarEmail);
-    botonComprar.addEventListener('click', compra);
-    botonBorrar.addEventListener('click', borrarInformacion);
-    email.addEventListener('keyup', validarEmail);
-    nombre.addEventListener('keyup', validarNombre);
-    apellido.addEventListener('keyup', validarApellido);
-    botonResumen.addEventListener('click', mostrarResumen);
-  });
-  
+}
+
+// Event listeners
+document.getElementById('btnResumen').addEventListener('click', mostrarResumen);

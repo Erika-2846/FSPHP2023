@@ -111,41 +111,40 @@
             </div>
         </section>
 
-        <section">
+        <section>
             <div class="container mt-0" style="font-size: 1em; overflow-x: auto;">
                 <h5 class="venta" style="text-align: center; font-size: small;">VENTA</h5>
                 <h3 class="ticket" style="text-align: center;">VALOR DE TICKET $200</h3>
             </div>
-
+    
             <div class="container">
                 <form class="row g-3 needs-validation col-md-6 mx-auto" novalidate>
                     <div class="col-md-6">
                         <label for="validationCustom01" class="form-label"></label>
-                        <input id="nombre" type="text" class="form-control" id="validationCustom01" value="" required
-                            placeholder="Nombre">
-                            <p id="errorNombre" class="oculto"></p>
+                        <input id="nombre" type="text" class="form-control" value="" required placeholder="Nombre">
+                        <p id="errorNombre" class="oculto"></p>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="validationCustom02" class="form-label"></label>
-                        <input id="apellido" type="text" class="form-control" id="validationCustom02" value="" required
-                            placeholder="Apellido">
-                            <p id="errorApellido" class="oculto"></p>
+                        <input id="apellido" type="text" class="form-control" value="" required placeholder="Apellido">
+                        <p id="errorApellido" class="oculto"></p>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                     </div>
                     <div class="mb-3">
-                        <input id="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Correo">
+                        <input id="email" type="email" class="form-control" placeholder="Correo">
                         <p id="errorEmail" class="oculto"></p>
                     </div>
                     <div class="container">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label>Cantidad</label>
-                                <input id="cantEntradas" type="text" class="form-control" placeholder="cantidad" aria-label="cantidad">
+                                <input id="cantEntradas" type="number" class="form-control" placeholder="cantidad"
+                                    aria-label="cantidad" min="1" value="1">
                             </div>
                             <div class="col-md-6">
                                 <label>Categoría</label>
@@ -159,28 +158,31 @@
                             </div>
                         </div>
                     </div>
-                    
+    
                     <div class="container">
-                        <div id="total" class="alert mt-3 p-2" role="alert" style="color: rgba(31, 31, 163, 0.856); background-color: rgb(180, 250, 244); font-size: 15px; font-weight: normal; display: flex; flex-direction: column;">
+                        <div id="total" class="alert mt-3 p-2" role="alert"
+                            style="color: rgba(31, 31, 163, 0.856); background-color: rgb(180, 250, 244); font-size: 15px; font-weight: normal; display: flex; flex-direction: column;">
                             Total a Pagar: $
-                          </div>
-                        <div class="d-grid gap-2">
-                            <button id="btnComprar" class="btn btn-primary mb-3"  type="button" onclick="compra()">Comprar Ticket</button>
-                    </div>
-                    <div class="container">
-                        <div class="row g-3">
-                            <div class="col-md-6 mt-3">
-                                <button id="btnBorrar" type="button" class="btn btn-none btn-md" style="width: 100%; background-color: rgb(106, 212, 106);" onclick="borrarInformacion()">Borrar</button>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <button id="btnResumen" onclick="validarNombre(); validarApellido(); validarEmail(); mostrarResumen()" type="button" class="btn btn-none btn-md" style="width: 100%; background-color: rgb(106, 212, 106)">Resumen</button>
+                        </div>
+                        <div class="container">
+                            <div class="row g-3">
+                                <div class="col-md-6 mt-3">
+                                    <button id="btnBorrar" type="button" class="btn btn-none btn-md"
+                                        style="width: 100%; background-color: rgb(106, 212, 106);"
+                                        onclick="borrarInformacion()">Borrar</button>
+                                </div>
+                                <div class="col-md-6 mt-3">
+                                    <button id="btnResumen" type="button" class="btn btn-none btn-md"
+                                        style="width: 100%; background-color: rgb(106, 212, 106)">Resumen</button>
+    
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div id="Info" style="display: flex; flex-direction: column;"></div>
                 </form>
             </div>
-            </section>
+        </section>
     </main>
 
     <!-- Inicio Footer -->
