@@ -94,6 +94,13 @@ function compra() {
 
   const categoriaSelect = document.getElementById('categoria');
   const categoria = categoriaSelect.value;
+
+ // Validar si se ha seleccionado una categoría
+ if (categoriaSelect.selectedIndex === 0) {
+  alert('Por favor, seleccione una categoría');
+  return;
+}
+
   calcularDescuento(valorTicket, cantEntradas);
 }
 
